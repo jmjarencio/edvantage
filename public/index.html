@@ -1,13 +1,1695 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Edvantage App</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div id="root"></div>
-  <script src="js/main.js"></script>
-</body>
-</html>
+<div id="edu-tools-wrapper">
+    <!-- ANTI-CACHE META TAGS: Forces browser to fetch the latest version with new buttons -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+    <style>
+        /* SCOPED STYLING - SLEEK MINIMALIST DESIGN */
+        #edu-tools-wrapper {
+            font-family: 'Poppins', sans-serif;
+            color: #111827;
+            background-color: #fafafa !important;
+            width: 100%;
+            min-height: auto; 
+            position: relative;
+            box-sizing: border-box;
+            line-height: 1.5;
+        }
+
+        #edu-tools-wrapper * {
+            box-sizing: border-box;
+        }
+
+        /* --- LOGIN SECTION --- */
+        #edu-tools-wrapper .login-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 90vh; 
+            z-index: 10;
+        }
+
+        #edu-tools-wrapper .login-card {
+            background: #ffffff;
+            padding: 48px 40px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            animation: et-fadeIn 0.6s ease;
+        }
+
+        #edu-tools-wrapper .logo-img {
+            width: 80px;
+            height: auto;
+            margin: 0 auto 24px auto;
+            display: block;
+        }
+
+        #edu-tools-wrapper h1.login-title,
+        #edu-tools-wrapper h2.top-bar-edvantage {
+            margin: 0 0 4px 0;
+            display: inline-block;
+            line-height: 1;
+            background: none;
+            -webkit-text-fill-color: initial;
+            text-shadow: none;
+        }
+
+        #edu-tools-wrapper h2.top-bar-edvantage {
+            margin: 0;
+        }
+
+        /* The cursive "Ed" part */
+        #edu-tools-wrapper .ed-part {
+            font-family: 'Pacifico', cursive;
+            color: #00a2e8; /* Sky Blue matching the image */
+            font-weight: 400;
+            margin-right: 2px;
+        }
+        
+        #edu-tools-wrapper h1.login-title .ed-part { font-size: 38px; }
+        #edu-tools-wrapper h2.top-bar-edvantage .ed-part { font-size: 24px; }
+
+        /* The rounded "vantage" part */
+        #edu-tools-wrapper .vantage-part {
+            font-family: 'Quicksand', sans-serif;
+            color: #37438e; /* Navy/Purple matching the image */
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        #edu-tools-wrapper h1.login-title .vantage-part { font-size: 32px; }
+        #edu-tools-wrapper h2.top-bar-edvantage .vantage-part { font-size: 20px; }
+
+        #edu-tools-wrapper .subtitle-main {
+            font-size: 14px;
+            color: #4b5563;
+            margin: 0 0 4px 0;
+        }
+
+        #edu-tools-wrapper .subtitle-credit {
+            font-size: 12px;
+            color: #9ca3af;
+            margin: 0 0 32px 0;
+        }
+
+        #edu-tools-wrapper .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            gap: 12px;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        #edu-tools-wrapper .google-btn:hover {
+            background-color: #f9fafb;
+            border-color: #9ca3af;
+        }
+
+        #edu-tools-wrapper .google-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* --- DASHBOARD SECTION --- */
+        #edu-tools-wrapper .dashboard-section {
+            display: none; 
+            width: 100%;
+            height: auto; 
+            position: relative; 
+            flex-direction: column;
+            background: transparent !important;
+            overflow: visible; 
+        }
+
+        #edu-tools-wrapper .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 48px; 
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative; 
+            min-height: 70px;
+            z-index: 10;
+        }
+
+        #edu-tools-wrapper .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #111827;
+        }
+
+        /* --- TITLE & LOGO AREA --- */
+        #edu-tools-wrapper .top-bar-title {
+            display: flex;
+            align-items: center;
+            gap: 16px; 
+        }
+
+        #edu-tools-wrapper .header-logo {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        #edu-tools-wrapper .title-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #edu-tools-wrapper .top-bar-title h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.2;
+            color: #111827;
+            letter-spacing: -0.01em;
+        }
+        
+        #edu-tools-wrapper .top-bar-title p {
+            font-size: 12px;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* USER PROFILE STYLES */
+        #edu-tools-wrapper .user-profile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            background: transparent; 
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        #edu-tools-wrapper .user-name {
+            font-weight: 500;
+            font-size: 14px;
+            color: #374151;
+            margin: 0;
+            text-align: right;
+        }
+
+        #edu-tools-wrapper .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #e5e7eb;
+            object-fit: cover;
+            display: block;
+        }
+
+        #edu-tools-wrapper .logout-btn {
+            font-size: 12px;
+            color: #6b7280;
+            cursor: pointer;
+            margin-left: 4px;
+            font-weight: 400;
+            border: none;
+            background: none;
+            transition: color 0.2s;
+            padding: 0;
+        }
+
+        #edu-tools-wrapper .logout-btn:hover {
+            color: #111827;
+        }
+
+        /* --- DASH CONTENT & TOOLS GRID --- */
+        #edu-tools-wrapper .dash-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #edu-tools-wrapper .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px; 
+            width: 100%;
+            margin: 0;
+            padding: 0 0 40px 0 !important; 
+            box-sizing: border-box;
+        }
+
+        #edu-tools-wrapper .tool-card {
+            width: calc((100% - 64px) / 3);
+            background: #ffffff;
+            border: 1px solid #f3f4f6;
+            border-radius: 16px;
+            padding: 32px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden; /* Clips the corner blob */
+            box-sizing: border-box;
+        }
+
+        /* The soft corner blob */
+        #edu-tools-wrapper .tool-card::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            opacity: 0.6;
+            transition: transform 0.4s ease;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        #edu-tools-wrapper .tool-card:hover::before {
+            transform: scale(1.15);
+        }
+
+        /* Keeps content above the blob */
+        #edu-tools-wrapper .tool-card > * {
+            z-index: 1;
+            position: relative;
+        }
+
+        #edu-tools-wrapper .tool-card:hover {
+            transform: translateY(-4px);
+            border-color: #e5e7eb;
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        /* --- ICONS --- */
+        #edu-tools-wrapper .icon-box {
+            width: 44px !important;
+            height: 44px !important;
+            margin: 0 0 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        #edu-tools-wrapper .icon-box svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+            stroke-width: 2px;
+        }
+
+        #edu-tools-wrapper .tool-card:hover .icon-box {
+            transform: scale(1.05);
+        }
+
+        /* TINTED COLOR CLASSES (Handles both Icon and Blob) */
+        /* Blue */
+        #edu-tools-wrapper .card-blue .icon-box { background-color: #e0f2fe !important; color: #0284c7; }
+        #edu-tools-wrapper .card-blue::before { background-color: #f0f9ff; }
+        /* Emerald/Green */
+        #edu-tools-wrapper .card-emerald .icon-box { background-color: #dcfce7 !important; color: #16a34a; }
+        #edu-tools-wrapper .card-emerald::before { background-color: #f0fdf4; }
+        /* Amber/Orange */
+        #edu-tools-wrapper .card-amber .icon-box { background-color: #ffedd5 !important; color: #ea580c; }
+        #edu-tools-wrapper .card-amber::before { background-color: #fff7ed; }
+        /* Violet/Purple */
+        #edu-tools-wrapper .card-violet .icon-box { background-color: #f3e8ff !important; color: #9333ea; }
+        #edu-tools-wrapper .card-violet::before { background-color: #faf5ff; }
+        /* Rose/Red */
+        #edu-tools-wrapper .card-rose .icon-box { background-color: #ffe4e6 !important; color: #e11d48; }
+        #edu-tools-wrapper .card-rose::before { background-color: #fff1f2; }
+
+        /* Typography matching the image */
+        #edu-tools-wrapper .tool-name {
+            font-weight: 700;
+            color: #111827;
+            font-size: 20px;
+            margin: 0 0 8px 0;
+            text-align: left;
+            letter-spacing: -0.01em;
+        }
+
+        #edu-tools-wrapper .tool-desc {
+            font-size: 14px;
+            color: #6b7280;
+            margin: 0;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* --- ADVERTISEMENT CTA --- */
+        #edu-tools-wrapper .cta-ad-section {
+            background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%);
+            border-radius: 16px;
+            padding: 56px 24px;
+            text-align: center;
+            color: #ffffff;
+            width: 100%;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            animation: et-fadeIn 0.8s ease;
+        }
+
+        #edu-tools-wrapper .cta-ad-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #edu-tools-wrapper .cta-ad-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        #edu-tools-wrapper .cta-ad-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: #e0e7ff;
+            backdrop-filter: blur(4px);
+        }
+
+        #edu-tools-wrapper .cta-ad-badge svg {
+            color: #f59e0b;
+        }
+
+        #edu-tools-wrapper .cta-ad-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        #edu-tools-wrapper .cta-ad-title .highlight {
+            color: #f59e0b; /* Orange text */
+        }
+
+        #edu-tools-wrapper .cta-ad-desc {
+            font-size: 16px;
+            color: #c7d2fe;
+            max-width: 580px;
+            margin: 0 auto 32px auto;
+            line-height: 1.6;
+        }
+
+        #edu-tools-wrapper .cta-ad-button {
+            background-color: #ea580c; /* Orange button */
+            color: #ffffff;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        #edu-tools-wrapper .cta-ad-button:hover {
+            background-color: #c2410c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.4);
+        }
+
+        #edu-tools-wrapper .cta-ad-footer {
+            font-size: 12px;
+            color: #818cf8;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 600px) {
+            #edu-tools-wrapper .cta-ad-title { font-size: 32px; }
+            #edu-tools-wrapper .cta-ad-desc { font-size: 14px; padding: 0 16px; }
+        }
+
+        @keyframes et-fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- NEW PROMOTIONAL SECTIONS --- */
+        #edu-tools-wrapper .et-section-title-wrapper { text-align: center; margin: 80px 0 40px 0; }
+        #edu-tools-wrapper .et-overline { font-size: 12px; font-weight: 700; color: #ea580c; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; display: block; }
+        #edu-tools-wrapper .et-section-title { font-size: 36px; font-weight: 700; color: #111827; margin: 0 0 16px 0; letter-spacing: -0.02em; }
+        #edu-tools-wrapper .et-section-subtitle { font-size: 16px; color: #6b7280; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+
+        /* Stats Banner - 100% Bulletproof Edge to Edge */
+        #edu-tools-wrapper { overflow-x: hidden !important; }
+
+        #edu-tools-wrapper .et-stats-banner { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 24px; 
+            padding: 64px 24px !important; 
+            color: white; 
+            text-align: center; 
+            
+            /* Restoring normal flow inside the container */
+            width: 100% !important; 
+            max-width: 100% !important; 
+            margin: 60px 0 80px 0 !important;
+            position: relative !important;
+            left: auto !important;
+            transform: none !important;
+            box-sizing: border-box;
+            z-index: 1; /* Keeps text above the infinite background */
+        }
+
+        /* The Trick: Background stretches infinitely left and right */
+        #edu-tools-wrapper .et-stats-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -50vw;
+            right: -50vw;
+            background: linear-gradient(90deg, #261e4f 0%, #3a3185 50%, #5247c4 100%);
+            z-index: -1;
+        }
+
+        /* Prevents horizontal scrollbars from the 100vw stretch */
+        #edu-tools-wrapper {
+            overflow-x: hidden;
+        }
+        #edu-tools-wrapper .et-stat-item { display: flex; flex-direction: column; align-items: center; }
+        #edu-tools-wrapper .et-stat-icon { width: 32px; height: 32px; margin-bottom: 16px; color: #a5b4fc; }
+        #edu-tools-wrapper .et-stat-number { font-size: 48px; font-weight: 700; line-height: 1; margin-bottom: 10px; letter-spacing: -0.02em; }
+        #edu-tools-wrapper .et-stat-label { font-size: 16px; font-weight: 500; color: #e0e7ff; }
+
+        /* How it works - Sleek Minimalist Redesign */
+        #edu-tools-wrapper .et-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 80px; }
+        
+        #edu-tools-wrapper .et-step-card { 
+            background: #ffffff; 
+            border-radius: 16px; 
+            padding: 40px 32px; 
+            border: 1px solid #f3f4f6; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        #edu-tools-wrapper .et-step-card:hover { 
+            transform: translateY(-4px); 
+            border-color: #e5e7eb;
+            box-shadow: 0 12px 20px -8px rgba(0,0,0,0.08);
+        }
+        
+        #edu-tools-wrapper .et-step-header {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 24px;
+        }
+
+        #edu-tools-wrapper .et-step-icon { 
+            width: 44px; 
+            height: 44px; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: transform 0.3s ease;
+        }
+        
+        #edu-tools-wrapper .et-step-icon svg { 
+            width: 22px; 
+            height: 22px; 
+            stroke-width: 2px; 
+        }
+        
+        #edu-tools-wrapper .et-step-title { 
+            font-size: 18px; 
+            font-weight: 700; 
+            color: #111827; 
+            margin: 0 0 12px 0; 
+            letter-spacing: -0.01em; 
+        }
+        
+        #edu-tools-wrapper .et-step-desc { 
+            font-size: 14px; 
+            color: #6b7280; 
+            line-height: 1.6; 
+            margin: 0; 
+        }
+        
+        /* Minimalist Accents */
+        #edu-tools-wrapper .step-1 .et-step-icon { background: #f8fafc; color: #0284c7; border: 1px solid #e0f2fe; }
+        #edu-tools-wrapper .step-1:hover .et-step-icon { transform: scale(1.05); }
+        
+        #edu-tools-wrapper .step-2 .et-step-icon { background: #faf5ff; color: #9333ea; border: 1px solid #f3e8ff; }
+        #edu-tools-wrapper .step-2:hover .et-step-icon { transform: scale(1.05); }
+        
+        #edu-tools-wrapper .step-3 .et-step-icon { background: #f0fdf4; color: #16a34a; border: 1px solid #dcfce7; }
+        #edu-tools-wrapper .step-3:hover .et-step-icon { transform: scale(1.05); }
+
+        #edu-tools-wrapper .step-4 .et-step-icon { background: #fffbeb; color: #d97706; border: 1px solid #fef3c7; }
+        #edu-tools-wrapper .step-4:hover .et-step-icon { transform: scale(1.05); }
+
+        #edu-tools-wrapper .step-5 .et-step-icon { background: #fff1f2; color: #e11d48; border: 1px solid #ffe4e6; }
+        #edu-tools-wrapper .step-5:hover .et-step-icon { transform: scale(1.05); }
+
+        #edu-tools-wrapper .step-6 .et-step-icon { background: #eef2ff; color: #4f46e5; border: 1px solid #e0e7ff; }
+        #edu-tools-wrapper .step-6:hover .et-step-icon { transform: scale(1.05); }
+
+        #edu-tools-wrapper .step-7 .et-step-icon { background: #f0fdfa; color: #0d9488; border: 1px solid #ccfbf1; }
+        #edu-tools-wrapper .step-7:hover .et-step-icon { transform: scale(1.05); }
+
+        #edu-tools-wrapper .step-8 .et-step-icon { background: #fdf2f8; color: #db2777; border: 1px solid #fce7f3; }
+        #edu-tools-wrapper .step-8:hover .et-step-icon { transform: scale(1.05); }
+
+        #edu-tools-wrapper .step-9 .et-step-icon { background: #f0f9ff; color: #0369a1; border: 1px solid #e0f2fe; }
+        #edu-tools-wrapper .step-9:hover .et-step-icon { transform: scale(1.05); }
+
+        /* Testimonials */
+        #edu-tools-wrapper .et-testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 80px; }
+        #edu-tools-wrapper .et-testimonial-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 32px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; transition: box-shadow 0.3s ease; }
+        #edu-tools-wrapper .et-testimonial-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
+        #edu-tools-wrapper .et-quote-icon { color: #dbeafe; width: 36px; height: 36px; margin-bottom: 16px; }
+        #edu-tools-wrapper .et-quote-text { font-size: 15px; font-style: italic; color: #374151; line-height: 1.7; margin-bottom: 16px; flex-grow: 1; }
+        
+        /* 5-Star Rating Styles */
+        #edu-tools-wrapper .et-stars-row { display: flex; gap: 4px; margin-bottom: 20px; color: #f59e0b; }
+        #edu-tools-wrapper .et-stars-row svg { width: 18px; height: 18px; }
+
+        #edu-tools-wrapper .et-author-row { display: flex; align-items: center; gap: 14px; }
+        #edu-tools-wrapper .et-author-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 16px; color: white; }
+        #edu-tools-wrapper .et-author-info h4 { margin: 0; font-size: 15px; font-weight: 600; color: #111827; }
+        #edu-tools-wrapper .et-author-info p { margin: 0; font-size: 13px; color: #6b7280; }
+
+        /* Avatar Colors */
+        #edu-tools-wrapper .av-1 { background: #2563eb; }
+        #edu-tools-wrapper .av-2 { background: #059669; }
+        #edu-tools-wrapper .av-3 { background: #ea580c; }
+        #edu-tools-wrapper .av-4 { background: #7c3aed; }
+
+        @media (max-width: 900px) {
+            #edu-tools-wrapper .et-stats-banner { grid-template-columns: repeat(2, 1fr); gap: 48px 16px; padding: 48px 24px; }
+            #edu-tools-wrapper .et-steps-grid { grid-template-columns: 1fr; }
+            #edu-tools-wrapper .et-testimonials-grid { grid-template-columns: 1fr; }
+            #edu-tools-wrapper .et-section-title { font-size: 28px; }
+        }
+
+
+        /* --- MOBILE STYLING --- */
+        @media (max-width: 900px) {
+            #edu-tools-wrapper .dash-content {
+                padding: 24px;
+            }
+            #edu-tools-wrapper .tools-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            #edu-tools-wrapper .tool-card {
+                width: 100%;
+            }
+
+            #edu-tools-wrapper .top-bar {
+                padding: 16px 24px;
+                justify-content: space-between;
+            }
+
+            #edu-tools-wrapper .mobile-menu-btn {
+                display: block !important;
+                order: 3;
+            }
+
+            #edu-tools-wrapper .top-bar-title {
+                order: 1;
+            }
+
+            #edu-tools-wrapper .header-logo {
+                height: 28px; 
+            }
+
+            #edu-tools-wrapper .user-profile {
+                display: none !important;
+                position: absolute;
+                top: 70px;
+                right: 24px;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 20px;
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+                z-index: 99;
+                border: 1px solid #e5e7eb;
+                width: 200px;
+                border-radius: 12px;
+            }
+
+            #edu-tools-wrapper .user-profile.show-mobile {
+                display: flex !important;
+                animation: et-fadeIn 0.2s ease-out;
+            }
+
+            #edu-tools-wrapper .user-name {
+                text-align: left;
+            }
+        }
+
+        /* --- MODAL STYLES --- */
+        #et-restriction-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.4); 
+            backdrop-filter: blur(4px); 
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        #et-restriction-modal .et-modal-content {
+            background-color: #ffffff;
+            margin: auto;
+            padding: 32px;
+            border: 1px solid #e5e7eb;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 16px; 
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            font-family: 'Poppins', sans-serif;
+            animation: et-modal-appear 0.2s ease-out; 
+        }
+
+        @keyframes et-modal-appear {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .et-modal-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+        }
+
+        .et-modal-icon-svg {
+            width: 24px;
+            height: 24px;
+            color: #ef4444;
+        }
+
+        .et-modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.01em;
+        }
+
+        .et-modal-text {
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .et-dev-link {
+            color: #111827;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+            transition: all 0.2s;
+        }
+
+        .et-dev-link:hover {
+            color: #000000;
+            border-bottom-color: #000000;
+        }
+
+        .et-modal-btn {
+            background-color: #111827; 
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            width: 100%;
+        }
+
+        .et-modal-btn:hover {
+            background-color: #374151;
+        }
+
+        /* --- DEPED MODAL STYLES --- */
+        #et-deped-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.4); 
+            backdrop-filter: blur(4px); 
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        #et-deped-modal .et-modal-content {
+            background-color: #ffffff;
+            margin: auto;
+            padding: 32px;
+            border: 1px solid #e5e7eb;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 16px; 
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            font-family: 'Poppins', sans-serif;
+            animation: et-modal-appear 0.2s ease-out; 
+        }
+
+        /* --- ADMIN TOGGLE --- */
+        #et-admin-toggle-container {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-right: 16px;
+            font-size: 12px;
+            color: #ef4444;
+            font-weight: 600;
+            border-right: 1px solid #e5e7eb;
+            padding-right: 16px;
+        }
+
+        .et-switch {
+            position: relative;
+            display: inline-block;
+            width: 32px;
+            height: 18px;
+        }
+
+        .et-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .et-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #cbd5e1;
+            transition: .3s;
+            border-radius: 20px;
+        }
+
+        .et-slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        .et-switch input:checked + .et-slider {
+            background-color: #ef4444;
+        }
+
+        .et-switch input:checked + .et-slider:before {
+            transform: translateX(14px);
+        }
+    </style>
+
+    <div id="et-restriction-modal" style="display: none;">
+        <div class="et-modal-content">
+            <div class="et-modal-icon-wrapper">
+                <svg class="et-modal-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+            </div>
+
+            <h3 class="et-modal-title">Access Restricted</h3>
+            
+            <p class="et-modal-text">
+                You do not have an active subscription for this tool.
+                <br><br>
+                To unlock this feature, please contact the Developer:<br>
+                <a href="https://www.facebook.com/johnmark.jarencio/" target="_blank" class="et-dev-link">John Mark Jarencio</a>
+            </p>
+
+            <button onclick="closeRestrictionModal()" class="et-modal-btn">I Understand</button>
+        </div>
+    </div>
+
+    <div id="et-deped-modal" style="display: none;">
+        <div class="et-modal-content">
+            <div class="et-modal-icon-wrapper" style="background: #fffbeb; color: #f59e0b;">
+                <svg class="et-modal-icon-svg" style="color: #f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+            </div>
+            <h3 class="et-modal-title">Account Restricted</h3>
+            <p class="et-modal-text">
+                Presentation Studio requires a non-DepEd account to function properly.
+                <br><br>
+                Please log out and sign in using your personal Gmail account to access this feature.
+            </p>
+            <button onclick="closeDepedModal()" class="et-modal-btn">Got it</button>
+        </div>
+    </div>
+
+    <!-- EDASSESS MODAL -->
+    <div id="et-edassess-modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(17, 24, 39, 0.4); backdrop-filter: blur(4px); justify-content: center; align-items: center;">
+        <div class="et-modal-content" style="background-color: #ffffff; margin: auto; padding: 32px; border: 1px solid #e5e7eb; width: 90%; max-width: 400px; border-radius: 16px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); font-family: 'Poppins', sans-serif; animation: et-modal-appear 0.2s ease-out;">
+            <div class="et-modal-icon-wrapper" style="background: #f3e8ff; color: #9333ea; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+                <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="et-modal-title" style="font-size: 18px; font-weight: 600; color: #111827; margin: 0 0 8px 0;">Feature in Development</h3>
+            <p class="et-modal-text" style="color: #4b5563; font-size: 14px; line-height: 1.5; margin-bottom: 24px;">
+                EdAssess is an ongoing application. Please kindly wait for future updates as we finalize and polish this professional tool for you.
+            </p>
+            <button onclick="closeEdAssessModal()" class="et-modal-btn" style="background-color: #111827; color: #ffffff; padding: 10px 24px; border-radius: 8px; border: none; font-weight: 500; font-size: 14px; cursor: pointer; width: 100%; transition: background-color 0.2s ease;">Understood</button>
+        </div>
+    </div>
+
+    <!-- ANNOUNCEMENT MODAL -->
+    <div id="et-announcement-modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(17, 24, 39, 0.6); backdrop-filter: blur(4px); justify-content: center; align-items: center;">
+        <div class="et-modal-content" style="background-color: #ffffff; margin: auto; padding: 32px; border: 1px solid #e5e7eb; width: 90%; max-width: 450px; border-radius: 16px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); font-family: 'Poppins', sans-serif; animation: et-modal-appear 0.2s ease-out;">
+            <div class="et-modal-icon-wrapper" style="background: #eff6ff; color: #3b82f6; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+                <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="et-modal-title" style="font-size: 18px; font-weight: 600; color: #111827; margin: 0 0 12px 0;">System Announcement</h3>
+            <p class="et-modal-text" style="color: #4b5563; font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
+                Due to unusually high traffic, our AI services are currently experiencing a heavy load and may run slower than usual. Please bear with us while we work to restore full functionality.
+                <br><br>
+                <strong style="color: #111827;">Rest assured, all your data and purchases are securely saved and completely intact.</strong>
+                <br><br>
+                Thank you for your patience and understanding.
+            </p>
+            <button onclick="closeAnnouncementModal()" class="et-modal-btn" style="background-color: #3b82f6; color: #ffffff; padding: 10px 24px; border-radius: 8px; border: none; font-weight: 500; font-size: 14px; cursor: pointer; width: 100%; transition: background-color 0.2s ease;">Acknowledge</button>
+        </div>
+    </div>
+
+    <div class="login-section" id="et-login-section">
+        <div class="login-card">
+            <div id="lottie-login-logo" class="logo-img" style="width: 80px; height: 80px;"></div>
+            
+            <h1 class="login-title">
+                <span class="ed-part">Ed</span><span class="vantage-part">vantage</span>
+            </h1>
+            <p class="subtitle-main">tech2forms.com</p>
+            <p class="subtitle-credit">Developed by John Mark Jarencio</p>
+            
+            <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 30px;">
+                        <button id="et-google-signin-btn" class="google-btn">
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="google-icon" alt="G">
+                            Sign in with Google
+                        </button>
+                        
+                    </div>
+        </div>
+    </div>
+
+    <div class="dashboard-section" id="et-dashboard-section">
+        <div class="top-bar">
+            <button id="et-mobile-menu-btn" class="mobile-menu-btn">
+                ☰
+            </button>
+
+            <div class="top-bar-title">
+                <div id="lottie-dash-logo" class="header-logo" style="width: 32px; height: 32px;"></div>
+                
+                <div class="title-text">
+                <h2 class="top-bar-edvantage">
+                    <span class="ed-part">Ed</span><span class="vantage-part">vantage</span>
+                </h2>
+                <p>tech2forms.com</p>
+            </div>
+        </div>
+
+        <div id="et-user-profile" class="user-profile">
+            <div id="et-admin-toggle-container">
+                <span>Alert:</span>
+                <label class="et-switch">
+                    <input type="checkbox" id="et-admin-announcement-toggle">
+                    <span class="et-slider"></span>
+                </label>
+            </div>
+            <span id="et-display-name" class="user-name">Loading...</span>
+                <img id="et-display-avatar" src="" alt="Profile" class="user-avatar">
+                <button id="et-logout-btn" class="logout-btn">(Logout)</button>
+            </div>
+        </div>
+
+        <div class="dash-content">
+            <div id="et-tool-view" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99999; background: #ffffff;">
+                <iframe id="et-tool-frame" src="" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+            </div>
+
+            <div id="et-tools-grid" class="tools-grid">
+                <div class="tool-card card-blue" onclick="openTool('https://tech2forms.com/schoolform2')">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            <path d="M9 14h6"></path><path d="M9 10h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">School Form 2 and School Form 4</h3>
+                    <p class="tool-desc">Automate your daily attendance and monthly summaries effortlessly.</p>
+                </div>
+
+                <div class="tool-card card-emerald" onclick="checkAccessAndOpen('sf9', 'https://tech2forms.com/schoolform9/')">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <path d="M10 12l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">School Form 9</h3>
+                    <p class="tool-desc">Generates diploma, honors certificate, Summary of Grades, Good Moral Character and AI Reading of Forms.</p>
+                </div>
+
+                <div class="tool-card card-amber" onclick="openTool('https://tech2forms.com/t-o-s/')">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">TOS, Exam and Worksheets Generator</h3>
+                    <p class="tool-desc">Generate Table of Specifications, localized exams, and context-rich worksheets instantly.</p>
+                </div>
+
+                <div class="tool-card card-violet" onclick="openTool('https://tech2forms.com/dllgenerator')">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">Lesson Planner</h3>
+                    <p class="tool-desc">Build highly detailed, MATATAG-aligned daily lesson logs following the standard ILAW framework.</p>
+                </div>
+
+                <div class="tool-card card-rose" onclick="checkDepedAndOpen()">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">Presentation Studio</h3>
+                    <p class="tool-desc">Convert ILAW Lesson Plan into Powerpoint presentation in one click.</p>
+                </div>
+
+                <div class="tool-card card-blue" onclick="openTool('https://tech2forms.com/enrollmentform')">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">Enrollment</h3>
+                    <p class="tool-desc">Manage student registrations and encode basic enrollment profiles seamlessly.</p>
+                </div>
+
+                <div class="tool-card card-emerald" onclick="openTool('https://tech2forms.com/bookofknowledge')">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">EdNotes</h3>
+                    <p class="tool-desc">Create a 100% accurate Lecture Notes on any Subjects.</p>
+                </div>
+
+                <div class="tool-card card-violet" onclick="showEdAssessModal()">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <path d="M9 15l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tool-name">EdAssess</h3>
+                    <p class="tool-desc">Create comprehensive assessments and evaluate student performance effortlessly.</p>
+                </div>
+            </div>
+
+            <!-- STATS BANNER -->
+            <div class="et-stats-banner">
+                <div class="et-stat-item">
+                    <svg class="et-stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="et-stat-number">100%</div>
+                    <div class="et-stat-label">MATATAG Aligned</div>
+                </div>
+                <div class="et-stat-item">
+                    <svg class="et-stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <div class="et-stat-number">100%</div>
+                    <div class="et-stat-label">Strengthened Curriculum Aligned</div>
+                </div>
+                <div class="et-stat-item">
+                    <svg class="et-stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <div class="et-stat-number">100%</div>
+                    <div class="et-stat-label">3-Term Ready</div>
+                </div>
+                <div class="et-stat-item">
+                    <svg class="et-stat-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div class="et-stat-number">100%</div>
+                    <div class="et-stat-label">Powerful Tools</div>
+                </div>
+            </div>
+
+            <!-- SECTION HEADER: FEATURES -->
+            <div class="et-section-title-wrapper">
+                <span class="et-overline">All-In-One Platform</span>
+                <h2 class="et-section-title">Powerful Features of <span style="color:#00a2e8; font-family:'Pacifico', cursive; font-weight:400;">Ed</span><span style="color:#37438e;">vantage</span></h2>
+            </div>
+
+            <!-- FEATURES GRID -->
+            <div class="et-steps-grid">
+                <!-- Card 1 -->
+                <div class="et-step-card step-1">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Choose your tool</h3>
+                    <p class="et-step-desc">Select from our suite of specialized tools built exclusively for the Philippine curriculum and DepEd standards.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="et-step-card step-2">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">AI generates instantly</h3>
+                    <p class="et-step-desc">Edvantage drafts your detailed lesson plans, school forms, and TOS in seconds — fully localized for your classroom.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="et-step-card step-3">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Export and submit</h3>
+                    <p class="et-step-desc">Download print-ready PDFs or DOCX files with one click. Perfectly formatted, accurate, and reliable.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="et-step-card step-4">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7" stroke-width="2"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" stroke-width="2"></polyline></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Automatically generates Honor Certificates</h3>
+                    <p class="et-step-desc">Instantly produce beautifully formatted, print-ready certificates for your top-performing students without manual encoding.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="et-step-card step-5">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Generates 100% accurate Diploma</h3>
+                    <p class="et-step-desc">Create flawless, perfectly aligned diplomas for your graduating classes, ensuring all student details are perfectly accurate.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="et-step-card step-6">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4" stroke-width="2"></circle><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 21v-2a4 4 0 00-3-3.87"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3.13a4 4 0 010 7.75"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Generates automatically SF2 and SF4 in one click</h3>
+                    <p class="et-step-desc">Skip the tedious computations. Automatically consolidate your daily attendance and monthly summaries in a single click.</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="et-step-card step-7">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke-width="2"></rect><line x1="8" y1="21" x2="16" y2="21" stroke-width="2"></line><line x1="12" y1="17" x2="12" y2="21" stroke-width="2"></line></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Create automatic Powerpoint presentation</h3>
+                    <p class="et-step-desc">Transform your lesson objectives into stunning, interactive slide decks that keep your learners actively engaged.</p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="et-step-card step-8">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8" stroke-width="2"></polyline><line x1="16" y1="13" x2="8" y2="13" stroke-width="2"></line><line x1="16" y1="17" x2="8" y2="17" stroke-width="2"></line><polyline points="10 9 9 9 8 9" stroke-width="2"></polyline></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Generates Worksheets and Exam</h3>
+                    <p class="et-step-desc">Generate context-rich, localized quizzes and periodic exams complete with reliable answer keys in a matter of seconds.</p>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="et-step-card step-9">
+                    <div class="et-step-header">
+                        <div class="et-step-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="et-step-title">Create comprehensive Lesson Plan (ILAW Template)</h3>
+                    <p class="et-step-desc">Build highly detailed, MATATAG-aligned daily lesson logs following the standard ILAW framework effortlessly.</p>
+                </div>
+            </div>
+
+            <!-- SECTION HEADER: TESTIMONIALS -->
+            <div class="et-section-title-wrapper">
+                <span class="et-overline">Your Virtual Assistant</span>
+                <h2 class="et-section-title">Designed for the Filipino Educator</h2>
+                <p class="et-section-subtitle">Reclaim your weekends and focus on what truly matters—teaching. Our AI-driven suite is custom-tailored to handle heavy administrative workloads.</p>
+            </div>
+
+            <!-- TESTIMONIALS GRID -->
+            <div class="et-testimonials-grid">
+                <div class="et-testimonial-card">
+                    <svg class="et-quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="et-quote-text">"Laking tulong ng SF2 at SF9 automations! Dati inaabot ako ng madaling araw tuwing end of quarter, pero ngayon tapos agad in just a few clicks. Highly recommended!"</p>
+                    
+                    <div class="et-stars-row">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <div class="et-author-row">
+                        <div class="et-author-avatar av-1">M</div>
+                        <div class="et-author-info">
+                            <h4>Ma'am Maria Tolentino</h4>
+                            <p>Grade 6 Adviser · DepEd Bulacan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="et-testimonial-card">
+                    <svg class="et-quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="et-quote-text">"Creating Table of Specifications used to be my biggest headache. With Edvantage, the cognitive domains are automatically distributed accurately. It’s absolutely flawless."</p>
+                    
+                    <div class="et-stars-row">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <div class="et-author-row">
+                        <div class="et-author-avatar av-2">J</div>
+                        <div class="et-author-info">
+                            <h4>Sir Julius Villanueva</h4>
+                            <p>Science Coordinator · Davao City</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="et-testimonial-card">
+                    <svg class="et-quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="et-quote-text">"The Lesson Planner is a lifesaver! It strictly follows MATATAG guidelines. I can generate a whole week's worth of DLLs over my morning coffee without stressing."</p>
+                    
+                    <div class="et-stars-row">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <div class="et-author-row">
+                        <div class="et-author-avatar av-3">C</div>
+                        <div class="et-author-info">
+                            <h4>Ma'am Catherine Reyes</h4>
+                            <p>English Teacher · DepEd Rizal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="et-testimonial-card">
+                    <svg class="et-quote-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="et-quote-text">"Whenever I have a classroom observation, Presentation Studio is my go-to. It builds highly interactive, beautiful slides that keep my learners engaged from start to finish."</p>
+                    
+                    <div class="et-stars-row">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+
+                    <div class="et-author-row">
+                        <div class="et-author-avatar av-4">A</div>
+                        <div class="et-author-info">
+                            <h4>Sir Anthony Morales</h4>
+                            <p>Master Teacher II · Quezon City</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADVERTISEMENT / CTA SECTION -->
+            <div class="cta-ad-section">
+                <div class="cta-ad-badge">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                    No credit card needed
+                </div>
+                
+                <h2 class="cta-ad-title">Simulan na ang iyong <span class="highlight">Edvantage</span></h2>
+                
+                <p class="cta-ad-desc">Join thousands of Filipino teachers already planning better, teaching better — with an AI that understands the Filipino classroom.</p>
+                
+                <a href="#" class="cta-ad-button" onclick="event.preventDefault(); document.getElementById('et-tools-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });">
+                    Magsimula Na — It's Free
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                
+                <div class="cta-ad-footer">Sign in with your Google Account</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+        // --- 100% BULLETPROOF CACHE FIX ---
+        // This solves the "multiple reloads needed" issue by aggressively unregistering Service Workers
+        // and clearing the Cache Storage, ensuring new HTML updates (like buttons) appear immediately.
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister().then(function(successful) {
+                        if (successful) {
+                            // If an old service worker was successfully removed, force reload from network
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+        }
+
+        // Wipe the Cache API storage where old HTML/assets might be trapped
+        if ('caches' in window) {
+            caches.keys().then(function(keyList) {
+                return Promise.all(keyList.map(function(key) {
+                    return caches.delete(key);
+                }));
+            });
+        }
+
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        // Added onSnapshot to imports for real-time updates
+        import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDsK7mAo-lEV1gWmRNYF4eJ8EJDi2I2FrU",
+            authDomain: "tech2forms.firebaseapp.com",
+            projectId: "tech2forms",
+            storageBucket: "tech2forms.firebasestorage.app",
+            messagingSenderId: "704986097600",
+            appId: "1:704986097600:web:616dff613824dac29bca25"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app); // Initialize Firestore
+        const provider = new GoogleAuthProvider();
+
+        const wrapper = document.getElementById('edu-tools-wrapper');
+        const loginSection = document.getElementById('et-login-section');
+        const dashboardSection = document.getElementById('et-dashboard-section');
+        const loginBtn = document.getElementById('et-google-signin-btn');
+        const logoutBtn = document.getElementById('et-logout-btn');
+        const displayName = document.getElementById('et-display-name');
+        const displayAvatar = document.getElementById('et-display-avatar');
+
+        // --- TOOL VIEW LOGIC ---
+        const toolsGrid = document.getElementById('et-tools-grid');
+        const toolView = document.getElementById('et-tool-view');
+        const toolFrame = document.getElementById('et-tool-frame');
+        
+        // Store subscriptions globally
+        let userSubscriptions = {};
+        window.currentUserEmail = null; // Track email globally
+
+        // -- NEW: MODAL LOGIC --
+        const restrictionModal = document.getElementById('et-restriction-modal');
+        window.closeRestrictionModal = () => {
+            restrictionModal.style.display = 'none'; // Fixed: Changed 'flex' to 'none' to hide it
+        };
+
+        const depedModal = document.getElementById('et-deped-modal');
+        window.closeDepedModal = () => {
+            if(depedModal) depedModal.style.display = 'none';
+        };
+
+        const announcementModal = document.getElementById('et-announcement-modal');
+        window.closeAnnouncementModal = () => {
+            if(announcementModal) announcementModal.style.display = 'none';
+        };
+
+        const edassessModal = document.getElementById('et-edassess-modal');
+        window.showEdAssessModal = () => {
+            if(edassessModal) edassessModal.style.display = 'flex';
+        };
+        window.closeEdAssessModal = () => {
+            if(edassessModal) edassessModal.style.display = 'none';
+        };
+
+        window.checkDepedAndOpen = () => {
+            if (window.currentUserEmail && window.currentUserEmail.toLowerCase().endsWith('@deped.gov.ph')) {
+                if(depedModal) depedModal.style.display = 'flex';
+            } else {
+                window.open('https://ai.studio/apps/aea1840a-ca28-44e0-9717-552111b39010?fullscreenApplet=true', '_blank');
+            }
+        };
+
+        // -- CHECK ACCESS LOGIC --
+        window.checkAccessAndOpen = (toolId, url) => {
+            // 1. Check if userSubscriptions object exists
+            // 2. Check if the specific toolId is set to true
+            if (userSubscriptions && userSubscriptions[toolId] === true) {
+                // ACCESS GRANTED: Open the tool
+                if (url) {
+                    // This function switches the view to the iframe
+                    window.openTool(url); 
+                } else {
+                    alert('Access granted! Tool URL not set yet.');
+                }
+            } else {
+                // ACCESS DENIED: Show the Restricted Modal
+                const modal = document.getElementById('et-restriction-modal');
+                modal.style.display = 'flex'; // Triggers the popup
+            }
+        };
+
+        // Make functions globally available so HTML onclick="" works
+        window.openTool = (url, skipHistory = false) => {
+            // Show the full-screen overlay (we don't hide the grid anymore since it's an overlay)
+            toolView.style.display = 'block';
+            
+            // Set the iframe URL
+            toolFrame.src = url;
+            
+            // Store the currently active tool URL in session storage
+            sessionStorage.setItem('et_active_tool_url', url);
+            
+            // Push a specific state to the browser history to track that the tool is open
+            if (!skipHistory) {
+                window.history.pushState({ isToolOpen: true }, "", window.location.href);
+            }
+        };
+
+        window.closeTool = () => {
+            toolView.style.display = 'none';
+            toolFrame.src = ''; // Clear iframe to stop playing/loading
+            
+            // Remove the saved tool URL when going back to the dashboard
+            sessionStorage.removeItem('et_active_tool_url');
+        };
+
+        // Listen for the browser's native Back/Forward buttons
+        window.addEventListener('popstate', (event) => {
+            // If the state has 'isToolOpen', it means the user went back/forward but is still INSIDE the tool's history
+            if (event.state && event.state.isToolOpen) {
+                toolView.style.display = 'block';
+            } else {
+                // If the state is empty, they have stepped all the way back to the dashboard
+                closeTool();
+            }
+        });
+        
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('et-mobile-menu-btn');
+        const userProfile = document.getElementById('et-user-profile');
+
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                userProfile.classList.toggle('show-mobile');
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            if (userProfile && 
+                userProfile.classList.contains('show-mobile') && 
+                !userProfile.contains(e.target) && 
+                e.target !== mobileMenuBtn) {
+                userProfile.classList.remove('show-mobile');
+            }
+        });
+
+        loginBtn.addEventListener('click', () => {
+            signInWithPopup(auth, provider)
+                .then((result) => console.log("Logged in"))
+                .catch((error) => alert("Login failed: " + error.message));
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => console.log("Logged out"));
+        });
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // --- REDIRECT LOGIC ---
+                // If a user was sent here from a restricted tool, redirect them back after successful login
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectUrl = urlParams.get('redirect');
+                if (redirectUrl) {
+                    window.location.href = decodeURIComponent(redirectUrl);
+                    return; // Stop rendering the dashboard
+                }
+
+                loginSection.style.display = 'none';
+                dashboardSection.style.display = 'flex';
+                // wrapper background handled by CSS
+                displayName.textContent = user.displayName;
+                displayAvatar.src = user.photoURL || 'https://via.placeholder.com/40';
+                window.currentUserEmail = user.email; // Save email for global checks
+
+                // --- NEW: ADMIN TOGGLE & ANNOUNCEMENT LISTENER ---
+                const adminToggleContainer = document.getElementById('et-admin-toggle-container');
+                const adminToggle = document.getElementById('et-admin-announcement-toggle');
+                
+                if (user.email === 'jmjarencio@gmail.com') {
+                    adminToggleContainer.style.display = 'flex';
+                    // Remove existing listeners to avoid duplicates if re-authenticated
+                    const newToggle = adminToggle.cloneNode(true);
+                    adminToggle.parentNode.replaceChild(newToggle, adminToggle);
+                    
+                    newToggle.addEventListener('change', async (e) => {
+                        try {
+                            await setDoc(doc(db, 'settings', 'global'), { showAnnouncement: e.target.checked }, { merge: true });
+                        } catch (err) {
+                            console.error("Error updating announcement setting:", err);
+                        }
+                    });
+                } else {
+                    adminToggleContainer.style.display = 'none';
+                }
+
+                // Listen to global settings for Announcement
+                onSnapshot(doc(db, 'settings', 'global'), (docSnap) => {
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        const currentToggle = document.getElementById('et-admin-announcement-toggle');
+                        if (user.email === 'jmjarencio@gmail.com' && currentToggle) {
+                            currentToggle.checked = !!data.showAnnouncement;
+                        }
+                        
+                        // Show popup if turned on and hasn't been shown in this session
+                        if (data.showAnnouncement && !sessionStorage.getItem('et_announcement_shown')) {
+                            const modal = document.getElementById('et-announcement-modal');
+                            if(modal) modal.style.display = 'flex';
+                            sessionStorage.setItem('et_announcement_shown', 'true');
+                        }
+                    }
+                });
+
+                // --- NEW: RESTORE ACTIVE TOOL ON RELOAD ---
+                const savedToolUrl = sessionStorage.getItem('et_active_tool_url');
+                if (savedToolUrl) {
+                    // Open the saved tool, pass 'true' to prevent duplicate history pushing
+                    window.openTool(savedToolUrl, true);
+                    // Replace the current history state so the Back button continues to work correctly
+                    window.history.replaceState({ isToolOpen: true }, "", window.location.href);
+                }
+
+                // --- NEW: Real-Time Data & User Save ---
+                try {
+                    const userRef = doc(db, 'users', user.uid);
+                    
+                    // --- STEP 1: PREPARE DEFAULTS ---
+                    // We must read the doc first to ensure we don't overwrite an Admin's "OFF" setting.
+                    const userSnap = await getDoc(userRef); //
+                    let finalSubscriptions = {};
+
+                    if (userSnap.exists()) {
+                        finalSubscriptions = userSnap.data().subscriptions || {};
+                    }
+
+                    // LOGIC: If 'tos' is undefined (never set), default it to TRUE.
+                    // If it is false (Admin turned it off), this leaves it false.
+                    if (finalSubscriptions.tos === undefined) {
+                        finalSubscriptions.tos = true;
+                    }
+                    
+                    // Default SF9 to TRUE so users automatically have access to it
+                    if (finalSubscriptions.sf9 === undefined) {
+                        finalSubscriptions.sf9 = true;
+                    }
+
+                    // --- STEP 2: REAL-TIME LISTENER ---
+                    onSnapshot(userRef, (docSnap) => {
+                        if (docSnap.exists()) {
+                            userSubscriptions = docSnap.data().subscriptions || {};
+                            console.log("Subscriptions updated in real-time:", userSubscriptions);
+                        } else {
+                            userSubscriptions = {};
+                        }
+                    });
+
+                    // --- STEP 3: SAVE TO DATABASE ---
+                    await setDoc(userRef, {
+                        uid: user.uid,
+                        email: user.email,
+                        displayName: user.displayName,
+                        photoURL: user.photoURL,
+                        lastLogin: new Date().toISOString(),
+                        subscriptions: finalSubscriptions // <--- This now saves the default!
+                    }, { merge: true });
+                    console.log("User saved to database");
+                } catch (error) {
+                    console.error("Error saving user:", error);
+                }
+                // -----------------------------------
+
+            } else {
+                window.currentUserEmail = null;
+                loginSection.style.display = 'flex';
+                dashboardSection.style.display = 'none';
+            }
+        });
+
+        // --- LOTTIE ANIMATION LOGIC ---
+        const logoAnimationData = {"v":"5.8.1","fr":29.9700012207031,"ip":0,"op":57.0000023216576,"w":1080,"h":1080,"nm":"Comp 1","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":5,"ty":4,"nm":"Load3 Outlines","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[540,539,0],"ix":2,"l":2},"a":{"a":0,"k":[1518,1004.5,0],"ix":1,"l":2},"s":{"a":0,"k":[51.5,51.5,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,190.724],[0,233.258],[-193.633,0],[0,0],[0,-193.632],[0,0],[0,0],[190.724,0],[0,0]],"o":[[0,0],[0,-193.632],[0,0],[193.632,0],[0,0],[0,0],[0,190.724],[0,0],[-190.724,0]],"v":[[-350.603,339.305],[-350.603,-334.046],[0,-684.641],[0.001,-684.641],[350.603,-334.046],[350.603,334.722],[350.603,339.305],[5.267,684.641],[-5.267,684.641]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":7,"s":[50]},{"t":37.0000015070409,"s":[0]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":7,"s":[69]},{"t":37.0000015070409,"s":[19]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false},{"ty":"st","c":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":7,"s":[0.925,0.812200089997,0.361000001197,1]},{"t":37.0000015070409,"s":[0.494117676978,0,1,1]}],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":150,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[1327.382,1042.938],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":3,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":58.0000023623884,"st":-38.0000015477717,"bm":0},{"ddd":0,"ind":6,"ty":4,"nm":"Load3 Outlines","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":180,"ix":10},"p":{"a":0,"k":[344,580,0],"ix":2,"l":2},"a":{"a":0,"k":[1518,1004.5,0],"ix":1,"l":2},"s":{"a":0,"k":[51.5,51.5,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,190.724],[0,233.258],[-193.633,0],[0,0],[0,-193.632],[0,0],[0,0],[190.724,0],[0,0]],"o":[[0,0],[0,-193.632],[0,0],[193.632,0],[0,0],[0,0],[0,190.724],[0,0],[-190.724,0]],"v":[[-350.603,339.305],[-350.603,-334.046],[0,-684.641],[0.001,-684.641],[350.603,-334.046],[350.603,334.722],[350.603,339.305],[5.267,684.641],[-5.267,684.641]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":7,"s":[0.494117736816,0,1,1]},{"t":37.0000015070409,"s":[0.925490260124,0.811764776707,0.360784322023,1]}],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":150,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[1327.382,1042.938],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":7,"s":[50]},{"t":37.0000015070409,"s":[0]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":7,"s":[69]},{"t":37.0000015070409,"s":[19]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":58.0000023623884,"st":-48.0000019550801,"bm":0},{"ddd":0,"ind":7,"ty":4,"nm":"Load3 Outlines","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[799.136,559.345,0],"ix":2,"l":2},"a":{"a":0,"k":[2021.177,1040.875,0],"ix":1,"l":2},"s":{"a":0,"k":[51.5,51.5,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-192.192,0],[0,0],[0,192.192],[0,0],[0,0],[190.767,0],[0,0],[0,-190.771]],"o":[[0,192.192],[0,0],[192.192,0],[0,0],[0,0],[0,-190.768],[0,0],[-190.77,0],[0,0]],"v":[[-347.995,336.15],[0,684.141],[0,684.141],[347.995,336.15],[347.995,-334.141],[347.995,-338.725],[2.58,-684.141],[-2.575,-684.141],[-347.995,-338.72]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":21,"s":[81]},{"t":51.0000020772726,"s":[31]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":21,"s":[100]},{"t":51.0000020772726,"s":[50]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false},{"ty":"st","c":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":21,"s":[0.301999978458,0.945458625345,0.969000004787,1]},{"t":51.0000020772726,"s":[0.972549080849,0.270588248968,0.913725554943,1]}],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":150,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[1673.182,1042.438],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":3,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":58.0000023623884,"st":-42.0000017106951,"bm":0},{"ddd":0,"ind":8,"ty":4,"nm":"Load3 Outlines","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":-180,"ix":10},"p":{"a":0,"k":[440.864,560.955,0],"ix":2,"l":2},"a":{"a":0,"k":[2021.177,1020.875,0],"ix":1,"l":2},"s":{"a":0,"k":[51.5,51.5,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-192.192,0],[0,0],[0,192.192],[0,0],[0,0],[190.767,0],[0,0],[0,-190.771]],"o":[[0,192.192],[0,0],[192.192,0],[0,0],[0,0],[0,-190.768],[0,0],[-190.77,0],[0,0]],"v":[[-347.995,336.15],[0,684.141],[0,684.141],[347.995,336.15],[347.995,-334.141],[347.995,-338.725],[2.58,-684.141],[-2.575,-684.141],[-347.995,-338.72]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":21,"s":[81]},{"t":51.0000020772726,"s":[31]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":21,"s":[100]},{"t":51.0000020772726,"s":[50]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false},{"ty":"st","c":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":21,"s":[0.972999961703,0.270999983245,0.915188000249,1]},{"t":51.0000020772726,"s":[0.301960796118,0.945098102093,0.968627512455,1]}],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":150,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[1673.182,1022.438],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":3,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":58.0000023623884,"st":-42.0000017106951,"bm":0}],"markers":[]};
+
+        // Render Login Animation
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-login-logo'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: logoAnimationData
+        });
+
+        // Render Dashboard Animation
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-dash-logo'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: logoAnimationData
+        });
+    </script>
+</div>
