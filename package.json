@@ -1,12 +1,16 @@
 {
-  "name": "my-edvantage-app",
+  "name": "edvantage-platform",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Edvantage Web Platform Node.js Server",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "express": "^4.19.2",
+    "helmet": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
